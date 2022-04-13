@@ -1,8 +1,6 @@
-all:
-  children:
-    target:
-      hosts:
-        10.0.0.20
+target:
+  hosts:
+    10.0.0.20:
 
   vars:
     ansible_user: vagrant
