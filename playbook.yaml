@@ -1,0 +1,15 @@
+- hosts: target
+  become: yes
+  tasks:
+    - name: update apps
+      command: apt update
+    - name: install apache
+      command: apt install apache2 -y
+    - name: copy apache script
+      ansible.builtin.copy:
+        src: /home/vagrant/apache.sh
+        dest: /home/vagrant/apache.sh
+        owner: vagrant
+        mode: u+x,g+x,o+x
+    - name: run apache script
+      script: /home/vagrant/apache.sh
